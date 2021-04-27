@@ -27,11 +27,11 @@
 	  require_once ("Libraries/Core/Autoload.php");
 	  require_once ("Libraries/Core/Load.php");
 
-	echo $url." (((soy el index)))) HOLATEDDY";
+	echo $url." (((soy el index)))) hii";
 
 
 
 //explode separa y guarda en un arreglo un String ( en este caso lo separa por el /)
 //trim elimina el espacion en blanco al inicio y al final de la cadena de caracteres
-// bend reality
+
 ?>
