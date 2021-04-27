@@ -27,7 +27,7 @@
 	  require_once ("Libraries/Core/Autoload.php");
 	  require_once ("Libraries/Core/Load.php");
 
-	echo $url." (((soy el index))))";
+	echo $url." (((soy el index)))) te modificare perron rancio";
 
 
 
