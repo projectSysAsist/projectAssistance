@@ -27,7 +27,7 @@
 	  require_once ("Libraries/Core/Autoload.php");
 	  require_once ("Libraries/Core/Load.php");
 
-	echo $url." (((soy el index))))holamundo";
+	echo $url." (((soy el index)))amigos1";
 
 
 
@@ -35,3 +35,4 @@
 //trim elimina el espacion en blanco al inicio y al final de la cadena de caracteres
 
 ?>
+//paz y amor
