@@ -35,3 +35,4 @@
 //trim elimina el espacion en blanco al inicio y al final de la cadena de caracteres
 
 ?>
+//paz y amor
