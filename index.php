@@ -33,5 +33,5 @@
 
 //explode separa y guarda en un arreglo un String ( en este caso lo separa por el /)
 //trim elimina el espacion en blanco al inicio y al final de la cadena de caracteres
-?>
 // bend reality
+?>
