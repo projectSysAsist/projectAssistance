@@ -27,8 +27,12 @@
 	  require_once ("Libraries/Core/Autoload.php");
 	  require_once ("Libraries/Core/Load.php");
 
+<<<<<<< HEAD
 	echo $url." (((soy el index)))amigos1";
 	//voy a vivir la vida la la la la
+=======
+	echo $url." (((soy el index)))";
+>>>>>>> 9bdab1acad3466c414b951cc86ebc19ad29d04d0
 
 
 
