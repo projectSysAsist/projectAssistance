@@ -8,9 +8,9 @@ const BASE_URL = "http://localhost/eclipse";
 date_default_timezone_set('America/Bogota');
 
 //Datos de conexión a BD
-const DB_HOST = "localhsot";
-const DB_NAME = "NoFallesAsiste";
-const DB_USUER = "root";
+const DB_HOST = "localhost";
+const DB_NAME = "db_tiendavirtual";
+const DB_USER = "root";
 const DB_PASSWORD = "";
 const DB_CHARSET = "charset=utf8";
 

@@ -1,10 +1,8 @@
 <?php
 class Controllers 
 {
-    public function __construct()
-
-    {
-        $this->views = new views();
+    public function __construct(){
+        $this->views = new Views();
         $this->loadModel();
         
     }
@@ -16,15 +14,9 @@ class Controllers
         $routClass = "Models/".$model.".php";
         if (file_exists($routClass))
         {
-            require_once("Models/HomeModel.php");
+            require_once($routClass);
             $this->model = new $model();
         }
-        
     }
-
 }
-
-
-
-
- ?>
+?>
