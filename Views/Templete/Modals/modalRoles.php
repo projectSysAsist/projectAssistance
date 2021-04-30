@@ -30,8 +30,8 @@
                   </div>
 
                 <div class="modal-footer">
-                  <button type="submit" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary">Guardar</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
                 
               </form>
