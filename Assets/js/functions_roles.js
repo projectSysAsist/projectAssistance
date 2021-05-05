@@ -44,6 +44,11 @@ document.addEventListener('DOMContentLoaded', function(){
 			return false;
 		}
 
+	
+		var request = () ? new XMLHttpRequest() : new ActiveXObjext('Microsoft.XMLHTTP');
+		var ajaxUrl = base_url+'/Roles/setrol';
+		var forData = new FormData (formRol);
+		request.open("POST",ajaxUrl,true);
 	}
 
 
