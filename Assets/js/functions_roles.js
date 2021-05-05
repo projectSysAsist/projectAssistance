@@ -29,21 +29,30 @@ document.addEventListener('DOMContentLoaded', function(){
 	});
 
 	//NUEVO ROL
-	/* var formRol = document.querySelector("#formRol");
-	formRol.onsubmit = funtion(e){
+	var formRol = document.querySelector("#formRol");
+	formRol.onsubmit = function(e){
 		e.preventDefault();
 
 		var strNombre = document.querySelector('#txtNombre').value;
-		var strDescripcion = document.querySelector('#strDescripcion').value;
-		var intStatus = document.querySelector('#intStatus').value;
+		var strDescripcion = document.querySelector('#txtDescripcion').value;
+		var intStatus = document.querySelector('#listStatus').value;
 
-		if (strNombre == '' || strDescripcion = '' || intStatus == '' ) {
+		if (strNombre == '' || strDescripcion == '' || intStatus == '' ) 
+		{
 
 			swal("Atención", "Todos los campos son obligatorios.", "error");
 			return false;
 		}
 
-	}*/
+	
+		var request = () ? new XMLHttpRequest() : new ActiveXObjext('Microsoft.XMLHTTP');
+		var ajaxUrl = base_url+'/Roles/setrol';
+		var forData = new FormData (formRol);
+		request.open("POST",ajaxUrl,true);
+	}
+
+
+
 });
 
 $('#tableRoles').DataTable();
