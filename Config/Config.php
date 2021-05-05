@@ -1,6 +1,6 @@
 
 <?php
-//hii esta es mi modificaión
+
 
 //define("BASE_URL", "http://localhost/www/no_falles/");
 const BASE_URL = "http://localhost/projectAssistance";
