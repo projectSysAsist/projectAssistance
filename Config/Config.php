@@ -3,7 +3,7 @@
 
 
 //define("BASE_URL", "http://localhost/www/no_falles/");
-const BASE_URL = "http://localhost/projectAssistance";
+const BASE_URL = "http://localhost/eclipseGit";
 
 //zona horaria
 date_default_timezone_set('America/Bogota');
@@ -20,7 +20,7 @@ const SPD = ".";
 const SPM = ",";
 
 //Simbolo de moneda
-const SMONEY = "Q"; 
+const SMONEY = "Q";
 
 
  ?>
