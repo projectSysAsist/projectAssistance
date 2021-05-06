@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function(){
             { "data": "descripcion" },
             { "data": "status" },
             { "data": "Options" }
-           
+
         ],
         "response":"true",
         "bDestroy":true,
@@ -37,14 +37,14 @@ document.addEventListener('DOMContentLoaded', function(){
 		var strDescripcion = document.querySelector('#txtDescripcion').value;
 		var intStatus = document.querySelector('#listStatus').value;
 
-		if (strNombre == '' || strDescripcion == '' || intStatus == '' ) 
+		if (strNombre == '' || strDescripcion == '' || intStatus == '' )
 		{
 
 			swal("Atención", "Todos los campos son obligatorios.", "error");
 			return false;
 		}
 
-	
+
 		var request = () ? new XMLHttpRequest() : new ActiveXObjext('Microsoft.XMLHTTP');
 		var ajaxUrl = base_url+'/Roles/setrol';
 		var forData = new FormData (formRol);
@@ -52,11 +52,39 @@ document.addEventListener('DOMContentLoaded', function(){
 	}
 
 
-
 });
 
 $('#tableRoles').DataTable();
 
 function openModal() {
+	document.querySelector('#idRol').value="";
+	document.querySelector('.modal-header').classList.replace("headerUpdate","headerRegister");
+	document.querySelector('#btnActionForm').classList.replace("btn-info","btn-primary");
+	document.querySelector('#btnText').innerHTML ="Guardar";
+	document.querySelector('#titleModal').innerHTML ="Nuevo Rol";
+	document.querySelector('#formRol').reset();
+
+
 	$('#modalFormRol').modal('show');
 }
+
+window.addEventListener('load', function() {
+	  fntEditRol();s
+}, false);
+
+function fntEditRol(){
+	var btnEditRol = document.querySelectorAll(".btnEditRol");
+	btnEditRol.forEach(function(btnEditRol){
+		btnEditRol.addEventListener('click', function(){
+
+			document.querySelector('#titleModal').innerHTML ="Actualizar Rol";
+			document.querySelector('.modal-header').classList.replace("headerRegister","headerUpdate");
+			document.querySelector('#btnActionForm').classList.replace("btn-primary","btn-info");
+			document.querySelector('#btnText').innerHTML ="Actualizar";
+
+
+			$('#modalFormRol').modal('show');
+
+			});
+		});
+	}
