@@ -11,7 +11,6 @@
       <div class="modal-body">
         <div class="tile-body">
               <form id="formRol" name="formRol">
-                <input type="hidden" id="idRol" name="idRol" value="">
                 <div class="form-group">
                   <label class="control-label">Nombres</label>
                   <input class="form-control" name="txtNombre" id="txtNombre" placeholder="" type="text" placeholder="Enter full name">

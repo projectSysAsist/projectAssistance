@@ -49,6 +49,26 @@ document.addEventListener('DOMContentLoaded', function(){
 		var ajaxUrl = base_url+'/Roles/setrol';
 		var forData = new FormData (formRol);
 		request.open("POST",ajaxUrl,true);
+		request.send (formData);
+		request.onreadystatechange= function(){
+			if (request.readystate == 4 && request.status == 200){
+
+				var objData = JSON.parse(request.responseText);
+
+				if (objData.status)
+				{
+					$('#modalFormRol').modal("hide");
+					formElement.reset();
+					swal("Roles de usuario", objData.msg, "success");
+					tableRoles.api().ajax.reload(function(){
+						
+					});
+					
+				}else{
+					swal("Error", objData.msg, "error");
+				}
+			}
+		}
 	}
 
 
