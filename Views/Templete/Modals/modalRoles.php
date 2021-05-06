@@ -10,7 +10,7 @@
       </div>
       <div class="modal-body">
         <div class="tile-body">
-              <form id="formRol" name="formRol">
+              <form id="formRol" name="formRol"method="post">
                 <div class="form-group">
                   <label class="control-label">Nombre</label>
                   <input class="form-control" name="txtNombre" id="txtNombre" placeholder="" type="text" placeholder="Enter full name">
