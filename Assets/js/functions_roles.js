@@ -102,6 +102,42 @@ function fntEditRol(){
 			document.querySelector('#btnActionForm').classList.replace("btn-primary","btn-info");
 			document.querySelector('#btnText').innerHTML ="Actualizar";
 
+			var idrol =this.getAttribute("rl");
+			var request =(window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('microsoft.XMLHTTP');
+			var ajaxUrl = base_url+'/Roles/getRol/'+idrol;
+			request.open("GET",ajaxUrl,true);
+			request.sent();
+
+			request.onereadystatechange = function(){
+				if(request.readyState == 4 && request.status == 200){
+			
+					var objData = JSON.parse(request.responseText);
+					if(objData.data.status)
+					{
+						document.querySelector("#idRol").value = objData.data.idrol;
+						document.querySelector("#txtNombre").value = objData.data.nombrerol;
+						document.querySelector("#txtDescripcion").value = objData.data.descripcion;
+						
+						if(objData.data.status ==1)
+						{
+							var optionselect = '<option value="1" selected class="notBlock">Activo</option>';
+						}else{
+							var optionselect = '<option value="2" selected class="notBlock">Inactivo</option>';
+						}
+						var htmlSelect = `${optionSelect}
+						<option value="1">Activo</option>
+						<option value="2">Inactivo</option>
+						`;
+						document.querySelector("#listStatus").inner.HTML = htmlSelect;
+						$('#modalformRol').modal('show');
+			
+					}else{
+						swal("Error", objData.msg , "error");
+					}
+				}
+			}
+
+
 
 			$('#modalFormRol').modal('show');
 
