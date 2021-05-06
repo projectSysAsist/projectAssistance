@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
-    <meta name="description" content="No falles, asiste.">
+    <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name ="author" content="Ted">  
+    <meta name ="author" content=" ">  
     <meta name="theme-color" content="#900600">
     <!-- <link rel="stylesheet" href="<?= media(); ?>/images/favicon.ico"> carga el icono-->
     <title><?= $data['page_tag'] ?></title>
