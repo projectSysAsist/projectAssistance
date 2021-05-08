@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		var strDescripcion = document.querySelector('#txtDescripcion').value;
 		var intStatus = document.querySelector('#listStatus').value;
 
-		if (strNombre == '' || strDescripcion == '' || intStatus == '' )
+		 if (strNombre == '' || strDescripcion == '' || intStatus == '' )
 		{
 
 			swal("Atención", "Todos los campos son obligatorios.", "error");
@@ -45,43 +45,10 @@ document.addEventListener('DOMContentLoaded', function(){
 		}
 
 
-	
-		var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObjext('Microsoft.XMLHTTP');
-		var ajaxUrl = base_url+'/Roles/setRol';//envia por metodo post a la url /Roles/setRoles
-		var formData = new FormData (formRol);
-
-
 		var request = () ? new XMLHttpRequest() : new ActiveXObjext('Microsoft.XMLHTTP');
 		var ajaxUrl = base_url+'/Roles/setrol';
 		var forData = new FormData (formRol);
-
 		request.open("POST",ajaxUrl,true);
-		request.send (formData);
-		request.onreadystatechange= function(){
-
-
-	
-			if (request.readyState == 4 && request.status == 200){
-					
-					
-				var objData = JSON.parse(request.responseText);
-
-				if (objData.status)//valida cada valor de cada posicion
-				{
-					$('#modalFormRol').modal("hide");
-					formRol.reset();
-					swal("Roles de usuario", objData.msg, "success");
-					tableRoles.api().ajax.reload(function(){
-						
-					});
-					
-				}else{
-					swal("Error", objData.msg, "error");
-				}
-
-			
-			}
-		}
 	}
 
 
@@ -102,7 +69,7 @@ function openModal() {
 }
 
 window.addEventListener('load', function() {
-	  fntEditRol();s
+	  fntEditRol();ss
 }, false);
 
 function fntEditRol(){
@@ -114,42 +81,6 @@ function fntEditRol(){
 			document.querySelector('.modal-header').classList.replace("headerRegister","headerUpdate");
 			document.querySelector('#btnActionForm').classList.replace("btn-primary","btn-info");
 			document.querySelector('#btnText').innerHTML ="Actualizar";
-
-			var idrol =this.getAttribute("rl");
-			var request =(window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('microsoft.XMLHTTP');
-			var ajaxUrl = base_url+'/Roles/getRol/'+idrol;
-			request.open("GET",ajaxUrl,true);
-			request.sent();
-
-			request.onereadystatechange = function(){
-				if(request.readyState == 4 && request.status == 200){
-			
-					var objData = JSON.parse(request.responseText);
-					if(objData.data.status)
-					{
-						document.querySelector("#idRol").value = objData.data.idrol;
-						document.querySelector("#txtNombre").value = objData.data.nombrerol;
-						document.querySelector("#txtDescripcion").value = objData.data.descripcion;
-						
-						if(objData.data.status ==1)
-						{
-							var optionselect = '<option value="1" selected class="notBlock">Activo</option>';
-						}else{
-							var optionselect = '<option value="2" selected class="notBlock">Inactivo</option>';
-						}
-						var htmlSelect = `${optionSelect}
-						<option value="1">Activo</option>
-						<option value="2">Inactivo</option>
-						`;
-						document.querySelector("#listStatus").inner.HTML = htmlSelect;
-						$('#modalformRol').modal('show');
-			
-					}else{
-						swal("Error", objData.msg , "error");
-					}
-				}
-			}
-
 
 
 			$('#modalFormRol').modal('show');
