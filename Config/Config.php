@@ -1,7 +1,6 @@
 
 <?php
 
-
 //define("BASE_URL", "http://localhost/www/no_falles/");
 const BASE_URL = "http://localhost/eclipse";
 

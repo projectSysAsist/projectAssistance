@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="modalFormRol" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="modalFormRol" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -10,10 +10,10 @@
       </div>
       <div class="modal-body">
         <div class="tile-body">
-              <form id="formRol" name="formRol"method="post">
+              <form id="formRol" name="formRol" method="post">
                 <div class="form-group">
                   <label class="control-label">Nombre</label>
-                  <input class="form-control" name="txtNombre" id="txtNombre" placeholder="" type="text" placeholder="Enter full name">
+                  <input class="form-control" name="txtNombre" id="txtNombre" type="text" placeholder="Enter full name">
                 </div>
   
                 <div class="form-group">
@@ -22,8 +22,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleSelect1" name="listStatus" id="listStatus" placeholder="">Estado</label>
-                    <select class="form-control" id="exampleSelect1">
+                    <label for="exampleSelect1"  >Estado</label>
+                    <select class="form-control" name="listStatus" id="listStatus">
                       <option value="1">Activo</option>
                       <option value="2">Inactivo</option>
                     </select>

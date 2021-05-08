@@ -6,7 +6,7 @@
         }
         public function loadmodel(){
             $model = get_class($this)."Model";
-            $routclass = "models/".$model.".php";
+            $routclass = "Models/".$model.".php";
             if(file_exists($routclass)){
                 requiere_once($routclass);
                 $this->model = new $model();

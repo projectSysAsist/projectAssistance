@@ -40,6 +40,6 @@
         </div>
       </div>
     </main>
-<?php footerAdmin($data); echo "excent my friend"; ?>
+<?php footerAdmin($data); ?>
 
    

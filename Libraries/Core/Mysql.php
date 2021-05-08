@@ -14,9 +14,9 @@
 		//Insertar un registro
 		public function insert(string $query, array $arrValues)
 		{
-			$this->strquiery = $query;
+			$this->strquery = $query;
 			$this->arrValues = $arrValues;
-			$insert = $this->execute($this->strquery);
+			$insert = $this->conexion->prepare($this->strquery);
 			$resInsert = $insert->execute($this->arrValues);
 
 			if ($resInsert){

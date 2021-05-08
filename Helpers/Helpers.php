@@ -43,9 +43,9 @@
 
 	//Elimina exceso de espacios entre palabras
 
-	function strClean($strClean)//pendiente
+	function strClean(string $string)//pendiente
 	{
-		$strClean = preg_replace('/\s+/', '/\s+/', subject);
+		//$strClean = preg_replace('/\s+/', '/\s+/', subject);
 		$strClean = trim($string);//Elimina las
 		$strClean = stripslashes($string);//
 		$strClean = str_ireplace("<script>","",$string);
@@ -75,7 +75,7 @@
 		$strClean = str_ireplace("[","",$string);
 		$strClean = str_ireplace("]","",$string);
 		$strClean = str_ireplace("==","",$string);
-		return $string;
+		return $strClean;
 
 
 	}

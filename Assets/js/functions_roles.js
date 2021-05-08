@@ -45,20 +45,24 @@ document.addEventListener('DOMContentLoaded', function(){
 		}
 
 	
-		var request = () ? new XMLHttpRequest() : new ActiveXObjext('Microsoft.XMLHTTP');
-		var ajaxUrl = base_url+'/Roles/setrol';
-		var forData = new FormData (formRol);
+		var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObjext('Microsoft.XMLHTTP');
+		var ajaxUrl = base_url+'/Roles/setRol';//envia por metodo post a la url /Roles/setRoles
+		var formData = new FormData (formRol);
 		request.open("POST",ajaxUrl,true);
 		request.send (formData);
 		request.onreadystatechange= function(){
-			if (request.readystate == 4 && request.status == 200){
 
+
+	
+			if (request.readyState == 4 && request.status == 200){
+					
+					
 				var objData = JSON.parse(request.responseText);
 
-				if (objData.status)
+				if (objData.status)//valida cada valor de cada posicion
 				{
 					$('#modalFormRol').modal("hide");
-					formElement.reset();
+					formRol.reset();
 					swal("Roles de usuario", objData.msg, "success");
 					tableRoles.api().ajax.reload(function(){
 						
@@ -67,6 +71,8 @@ document.addEventListener('DOMContentLoaded', function(){
 				}else{
 					swal("Error", objData.msg, "error");
 				}
+
+			
 			}
 		}
 	}

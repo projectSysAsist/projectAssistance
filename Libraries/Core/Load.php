@@ -10,7 +10,6 @@ $controllerFile = "Controllers/".$controller.".php";
         {
             $controller->{$method}($params);
         }else{  
-          echo "  conterrller: ".$controllerFile;
           require_once("Controllers/Error.php");
 
       }
