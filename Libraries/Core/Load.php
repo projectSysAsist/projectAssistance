@@ -9,7 +9,7 @@ $controllerFile = "Controllers/".$controller.".php";
         if (method_exists($controller, $method))
         {
             $controller->{$method}($params);
-        }else{
+        }else{  
           require_once("Controllers/Error.php");
 
       }

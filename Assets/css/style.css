@@ -15,7 +15,8 @@
   background-color: #5e42a6;
   z-index: 1030;
   padding-right: 15px;
-  opacity: .1;
+  opacity: .9;
+  opacity: .9;
 }
 .app-header__logo {
   -webkit-box-flex: 1;

@@ -1,6 +1,6 @@
 <?php
 
-class views
+class Views
 {
     function getView($controller,$view,$data="")
     {
