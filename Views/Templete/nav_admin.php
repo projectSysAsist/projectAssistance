@@ -74,7 +74,7 @@
         <li>
           <a class="app-menu__item" href="<?= base_url(); ?>/logout">
             <i class="app-menu__icon fa fa-sign-out" aria-hidden="true"></i>
-            <span class="app-menu__label">Logout</span>
+            <span class="app-menu__label">Salir</span>
           </a>
         </li>
 
