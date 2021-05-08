@@ -84,5 +84,35 @@ document.addEventListener('DOMContentLoaded', function(){
 $('#tableRoles').DataTable();
 
 function openModal() {
+
+	document.querySelector('#idRol').value="";
+	document.querySelector('.modal-header').classList.replace("headerUpdate","headerRegister");
+	document.querySelector('#btnActionForm').classList.replace("btn-info","btn-primary");
+	document.querySelector('#btnText').innerHTML ="Guardar";
+	document.querySelector('#titleModal').innerHTML ="Nuevo Rol";
+	document.querySelector('#formRol').reset();
 	$('#modalFormRol').modal('show');
+	
 }
+
+window.addEventListener('click', function() {
+	  fntEditRol();
+}, false);
+
+function fntEditRol(){
+	var btnEditRol = document.querySelectorAll(".btnEditRol");
+	btnEditRol.forEach(function(btnEditRol){
+		btnEditRol.addEventListener('click', function(){
+
+			document.querySelector('#titleModal').innerHTML ="Actualizar Rol";
+			document.querySelector('.modal-header').classList.replace("headerRegister","headerUpdate");
+			document.querySelector('#btnActionForm').classList.replace("btn-primary","btn-info");
+			document.querySelector('#btnText').innerHTML ="Actualizar";
+
+
+			$('#modalFormRol').modal('show');
+			
+
+			});
+		});
+	}

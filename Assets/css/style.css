@@ -80,3 +80,14 @@
 div{
 	
 }
+.app-sidebar__togle::before {
+  display: none;
+}
+.headerRegister{
+  background: #5e42a6;
+  color: #FFF;
+}
+.headerUpdate{
+  background: #5e42a6;
+  color: #FFF;
+}

@@ -30,9 +30,9 @@ class Roles extends Controllers{
       $arrData[$i]['Options'] = '<div class="text-centeer">
       <button class="btn btn-secondary btn-sm btnPermisosRol" rl="'.$arrData[$i]['idrol'].'" title= "Permisos"><i class="fas fa-key"></i></button>
 
-      <button class="btn btn-primary" btn-sm btnEditarRol" rl="'.$arrData[$i]['idrol'].'" title="Editar"><i class="fas fa-pencil-alt"></i></button>
+      <button class="btn btn-primary btn-sm btnEditRol" rl="'.$arrData[$i]['idrol'].'" title="Editar"><i class="fas fa-pencil-alt"></i></button>
 
-      <button class="btn btn-danger" btn-sm btnDelRol" rl="'.$arrData[$i]['idrol'].'" title="Eliminar"><i class="fas fa-trash-alt" ></i></button>
+      <button class="btn btn-danger btn-sm btnDelRol" rl="'.$arrData[$i]['idrol'].'" title="Eliminar"><i class="fas fa-trash-alt" ></i></button>
                                 </div>';
     }
   
