@@ -5,7 +5,7 @@
 		private $conect;
 		
 		public function __construct(){
-			$connectionString = "mysql:host=".DB_HOST.";dbname=".DB_NAME;
+			$connectionString = "mysql:host=".DB_HOST.";dbname=".nombrerol, descripcion, status;
 
             try {
                 $this->conect = new PDO($connectionString,DB_USER,DB_PASSWORD);

@@ -27,10 +27,10 @@
 	  require_once ("Libraries/Core/Autoload.php");
 	  require_once ("Libraries/Core/Load.php");
 
-	echo $url." (((soy el index)))) te modificare perron rancio";
+	echo $url." (((soy el index)))) ";
 
 
 
 //explode separa y guarda en un arreglo un String ( en este caso lo separa por el /) 
-//trim elimina el espacion en blanco al inicio y al final de la cadena de caracteres
+//trim elimina el espacio en blanco al inicio y al final de la cadena de caracteres
 ?>
