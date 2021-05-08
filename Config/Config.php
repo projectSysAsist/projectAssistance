@@ -2,7 +2,7 @@
 <?php
 
 //define("BASE_URL", "http://localhost/www/no_falles/");
-const BASE_URL = "http://localhost/eclipseGit";
+const BASE_URL = "http://localhost/eclipse";
 
 //zona horaria
 date_default_timezone_set('America/Bogota');
@@ -19,7 +19,7 @@ const SPD = ".";
 const SPM = ",";
 
 //Simbolo de moneda
-const SMONEY = "Q";
+const SMONEY = "Q"; 
 
 
  ?>

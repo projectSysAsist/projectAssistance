@@ -1,5 +1,5 @@
-<?php
-   class Controllers
+<?php 
+    class Controllers
     {
         public function __construct(){
             $this->loadmodel();
