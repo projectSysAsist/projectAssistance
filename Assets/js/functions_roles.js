@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	formRol.onsubmit = function(e){
 		e.preventDefault();
 
+        var intIdRol = document.querySelector('#idRol').value;
 		var strNombre = document.querySelector('#txtNombre').value;
 		var strDescripcion = document.querySelector('#txtDescripcion').value;
 		var intStatus = document.querySelector('#listStatus').value;
@@ -65,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function(){
 					formRol.reset();
 					swal("Roles de usuario", objData.msg, "success");
 					tableRoles.api().ajax.reload(function(){
+						fntEditRol(); 
 						
 					});
 					

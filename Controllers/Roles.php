@@ -58,22 +58,42 @@ public function getRol(int $idrol)
 
   public function setRol(){
     
-
+    $intIdrol = intval($_POST['idRol']);
     $strRol= strClean($_POST['txtNombre']);
     $strDescripcion = strClean($_POST['txtDescripcion']);
     $intStatus = intval($_POST['listStatus']);
-    $request_rol = $this->model->insertRol($strRol, $strDescripcion, $intStatus);
     
 
-    if ($request_rol=='exist'){
-        $arrResponse=array('status'=>false, 'msg'=>'¡Atencion! el Rol ya existe.');
-
-    }else if ($request_rol > 0)
+    if($intIdrol == 0)
     {
-      $arrResponse=array('status'=>true, 'msg'=>'Datos guardados correctamente.');
+      //crear
+      $request_rol = $this->model->insertRol($strRol, $strDescripcion, $intStatus);
+      $Option = 1;
+    }else{
+
+      //Actualizar
+      $request_rol = $this->model->updateRol($intIdrol, $strRol, $strDescripcion, $intStatus);
+      $Option = 2;
+
+    }
+    
+
+    if ($request_rol > 0)
+    { 
+      if ($Option == 1) 
+      {
+        $arrResponse= array('status'=>true, 'msg' =>'Datos guardados correactamente.');
+      }else{
+        $arrResponse= array('status'=>true, 'msg' =>'Datos Actualizados correactamente.');
+      }
+
+
+    }else if ($request_rol == 'exist')
+    {
+      $arrResponse = array('status'=>false, 'msg'=>'Atencion el rol ya existe.');
 
     }else{
-      $arrResponse=array('status'=> false, "msg" => 'No es posible almacenar los datos.');
+      $arrResponse = array('status'=> false, "msg" => 'No es posible almacenar los datos.');
     }
     echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
     die();
