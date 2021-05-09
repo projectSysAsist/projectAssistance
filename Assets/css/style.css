@@ -91,3 +91,6 @@ div{
   background: #5e42a6;
   color: #FFF;
 }
+.notBlock{
+  display: none;
+}

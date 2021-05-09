@@ -17,10 +17,16 @@
 			$sql = "SELECT * FROM rol WHERE status !=0";
 			$request = $this->select_all($sql);
 			return $request;
-			
-			
-
 		}
+		public function selectRol (int $idrol)
+		{
+			$this->intIdrol = $idrol;
+			$sql= "SELECT * FROM rol WHERE idrol = $this->intIdrol";
+			$request = $this->select($sql);
+			return $request;
+		}
+
+
 		public function insertRol(string $rol, string $descripcion, int $status){
 
 			$return="";

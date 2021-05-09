@@ -1,6 +1,5 @@
 <?php
 
-
 class Roles extends Controllers{
 
   public function __construct()
@@ -35,9 +34,26 @@ class Roles extends Controllers{
       <button class="btn btn-danger btn-sm btnDelRol" rl="'.$arrData[$i]['idrol'].'" title="Eliminar"><i class="fas fa-trash-alt" ></i></button>
                                 </div>';
     }
-  
     echo json_encode($arrData,JSON_UNESCAPED_UNICODE);
     die();
+  }
+
+
+public function getRol(int $idrol)
+  {
+      $intIdrol = intval(strClean($idrol));
+      if($intIdrol > 0)
+      {
+          $arrData = $this->model->selectRol($intIdrol);
+          if(empty($arrData))
+          {
+              $arrResponse = array('status' => false, 'msg' => 'Datos no encontrados');
+          }else{
+              $arrResponse = array('status' => true, 'data' => $arrData);
+          }
+          echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+      }
+      die();
   }
 
   public function setRol(){
@@ -61,9 +77,6 @@ class Roles extends Controllers{
     }
     echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
     die();
-
-
-
 
   }
 }

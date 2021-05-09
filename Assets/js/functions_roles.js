@@ -110,8 +110,49 @@ function fntEditRol(){
 			document.querySelector('#btnText').innerHTML ="Actualizar";
 
 
-			$('#modalFormRol').modal('show');
+	 		var idrol =this.getAttribute("rl");
+			var request =(window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObjext('Microsoft.XMLHTTP');
+			var ajaxUrl = base_url+'/Roles/getRol/'+idrol;
+			request.open("GET",ajaxUrl,true);
+			request.send();
 			
+
+			request.onreadystatechange = function(){
+				
+				if(request.readyState == 4 && request.status == 200){
+					console.log(request.responseText);
+					
+			
+					var objData = JSON.parse(request.responseText);
+					if(objData.status)
+					{
+
+
+						document.querySelector("#idRol").value = objData.data.idrol;
+						document.querySelector("#txtNombre").value = objData.data.nombrerol;
+						document.querySelector("#txtDescripcion").value = objData.data.descripcion;
+						
+						if(objData.data.status ==1)
+						{
+							var optionSelect = '<option value="1" selected class="notBlock">Activo</option>';
+						}else{
+							var optionSelect = '<option value="2" selected class="notBlock">Inactivo</option>';
+						}
+						var htmlSelect = `${optionSelect}
+										<option value="1">Activo</option>
+										<option value="2">Inactivo</option>
+										`;
+						document.querySelector("#listStatus").innerHTML = htmlSelect;
+						
+			
+					}else{
+						swal("Error", objData.msg , "error");
+					}
+					$('#modalFormRol').modal('show');
+
+				}
+			}
+
 
 			});
 		});
