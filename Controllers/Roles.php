@@ -62,15 +62,16 @@ public function getRol(int $idrol)
     $strRol= strClean($_POST['txtNombre']);
     $strDescripcion = strClean($_POST['txtDescripcion']);
     $intStatus = intval($_POST['listStatus']);
+    //$request_rol = $this->model->insertRol($strRol, $strDescripcion, $intStatus);
     
 
-    if($intIdrol == 0)
-    {
+
+    if($intIdrol == 0){
       //crear
       $request_rol = $this->model->insertRol($strRol, $strDescripcion, $intStatus);
       $Option = 1;
-    }else{
 
+    }else{
       //Actualizar
       $request_rol = $this->model->updateRol($intIdrol, $strRol, $strDescripcion, $intStatus);
       $Option = 2;
@@ -78,27 +79,44 @@ public function getRol(int $idrol)
     }
     
 
-    if ($request_rol > 0)
-    { 
-      if ($Option == 1) 
-      {
+    if ($request_rol){ 
+
+      if ($Option == 1){
+
         $arrResponse= array('status'=>true, 'msg' =>'Datos guardados correactamente.');
+
       }else{
+
         $arrResponse= array('status'=>true, 'msg' =>'Datos Actualizados correactamente.');
       }
 
-
-    }else if ($request_rol == 'exist')
+    }
+    else if ($request_rol == 'exist')
     {
       $arrResponse = array('status'=>false, 'msg'=>'Atencion el rol ya existe.');
 
     }else{
-      $arrResponse = array('status'=> false, "msg" => 'No es posible almacenar los datos.');
+      $arrResponse=array('status'=> false, "msg" => 'No es posible almacenar los datos.');
     }
     echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
     die();
 
-  }
-}
+    }
 
+    public function delRol (){
+      if ($_POST) {
+        $intIdrol = intval($_POST['idrol']);
+        $requestDelete= $this->model->deleteRol($intIdrol);
+        if ($requestDelete == 'ok') {
+          $arrResponse = array('status' => true, 'msg' => 'se ha eliminado el Rol');
+        } else if ($requestDelete == 'exist') {
+          $arrResponse = array('status' => false, 'msg' => 'No es posible eliminar un Rol asociado a usuarios.');
+        }else{
+          $arrResponse = array('status' => false, 'msg' => 'Error al eliminar el Rol.');
+        }
+        echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+      }
+    die();
+    }
+  }
  ?>

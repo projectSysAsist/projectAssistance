@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	formRol.onsubmit = function(e){
 		e.preventDefault();
 
-        var intIdRol = document.querySelector('#idRol').value;
+		 var intIdRol = document.querySelector('#idRol').value;
 		var strNombre = document.querySelector('#txtNombre').value;
 		var strDescripcion = document.querySelector('#txtDescripcion').value;
 		var intStatus = document.querySelector('#listStatus').value;
@@ -44,6 +44,13 @@ document.addEventListener('DOMContentLoaded', function(){
 			swal("Atención", "Todos los campos son obligatorios.", "error");
 			return false;
 		}
+		/*let elementsValid = document.getElementsByClassName("valid");
+        for (let i = 0; i < elementsValid.length; i++) { 
+            if(elementsValid[i].classList.contains('is-invalid')) { 
+                swal("Atención", "Por favor verifique los campos en rojo." , "error");
+                return false;
+            } 
+        }*/
 
 	
 		var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObjext('Microsoft.XMLHTTP');
@@ -66,8 +73,8 @@ document.addEventListener('DOMContentLoaded', function(){
 					formRol.reset();
 					swal("Roles de usuario", objData.msg, "success");
 					tableRoles.api().ajax.reload(function(){
+
 						fntEditRol(); 
-						
 					});
 					
 				}else{
@@ -99,6 +106,7 @@ function openModal() {
 
 window.addEventListener('click', function() {
 	  fntEditRol();
+	  fntDelRol();
 }, false);
 
 function fntEditRol(){
@@ -156,6 +164,58 @@ function fntEditRol(){
 			}
 
 
-			});
 		});
-	}
+	});
+}
+function fntDelRol(){
+	var btnEditRol = document.querySelectorAll(".btnDelRol");
+	btnEditRol.forEach(function(btnDelRol){
+
+		btnDelRol.addEventListener('click', function(){
+			var idrol = this.getAttribute("rl");
+			
+			swal({
+				title: "Eliminar Rol",
+				text: "¿Realmente quiere eliminar el Rol?",
+				type: "warning",
+				showCancelButton: true,
+				confirmButtonText: "si, eliminar!",
+				showCancelButton: "No, cancelar!",
+				closeOnConfirm: false,
+				closeOnCancel:  true
+			}, function(isConfirm){
+
+				if (isConfirm) {
+					var request = (window.XMLHttpRequest) ? new XMLHttpRequest() :new ActiveXObjext('Microsoft.XMLHTTP');
+					var ajaxUrl = base_url+'/Roles/delRol';//envia por metodo post a la url /Roles/setRoles
+					var srtData = "idrol="+idrol;
+					request.open("POST",ajaxUrl,true);
+					request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					request.send (srtData);
+					request.onreadystatechange= function(){
+
+						if (request.readyState == 4 && request.status == 200){
+								
+							console.log (request.responseText);
+							var objData = JSON.parse(request.responseText);
+
+							if (objData.status)//valida cada valor de cada posicion
+							{
+								
+								swal("Eliminar!", objData.msg, "success");
+								tableRoles.api().ajax.reload(function(){
+									fntEditRol(); 
+									fntDelRol(); 
+								});
+								
+							}else{
+								swal("Atención!", objData.msg, "error");
+							}
+						}
+					}
+				}
+			});
+
+		});
+	});
+}

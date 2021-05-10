@@ -61,8 +61,8 @@
 			$this->strquery = $query;
 			$this->arrValues = $arrValues;
 			$result = $this->conexion->prepare($this->strquery);
-			$reExecute = $update->prepare($this->arrValues);
-			return $resExecute;
+			$result->execute($this->arrValues);
+			return $result;
 		}
 
 		//Eliminar registros
