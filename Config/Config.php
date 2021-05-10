@@ -2,7 +2,7 @@
 <?php
 
 //define("BASE_URL", "http://localhost/www/no_falles/");
-const BASE_URL = "http://localhost/eclipse";
+const BASE_URL = "http://localhost/projectAssistance";
 
 //zona horaria
 date_default_timezone_set('America/Bogota');
