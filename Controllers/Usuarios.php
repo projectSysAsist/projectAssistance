@@ -109,5 +109,12 @@
 			die();
 		}
 
+		public function perfil(){
+			$data['page_tag'] = "perfil";
+			$data['page_title'] = "perfil de usuario ";
+			$data['page_name'] = "perfil";
+			$data['page_functions_js'] = "functions_usuarios.js";
+			$this->views->getView($this,"perfil",$data);
+		}
 	}
  ?>
