@@ -4,7 +4,11 @@ class Login extends Controllers{
 
   public function __construct()
   {
-    session_start();
+    session_start(); 
+    if(isset($_SESSION['login']))
+    {
+      header('Location: '.base_url().'/dashboard');
+    }
     parent:: __construct();
   }
 
@@ -34,6 +38,10 @@ class Login extends Controllers{
           if ($arrData['status'] == 1){
             $_SESSION['idUser'] = $arrData['idpersona'];
             $_SESSION['login'] = true;
+
+            $arrData = $this->model->sessionlogin($_SESSION['idUser']);
+            $_SESSION['userData'] = $arrData;
+
             $arrResponse = array('status' => true, 'msg' => 'Ok.' );
           }else{
             $arrResponse = array('status' => false, 'msg' => 'Usuario inactivo.'); 

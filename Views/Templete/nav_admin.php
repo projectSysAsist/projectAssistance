@@ -3,8 +3,8 @@
     <aside class="app-sidebar">
       <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="<?= media(); ?>/images/avatar.jpg" alt="User Image">
         <div>
-          <p class="app-sidebar__user-name">Nom user</p>
-          <p class="app-sidebar__user-designation">Rol user</p>
+          <p class="app-sidebar__user-name"><? $_SESSION['userData']['nombres']; ?></p>
+          <p class="app-sidebar__user-designation"><? $_SESSION['userData']['nombrerol']; ?></p>
         </div>
       </div>
       <ul class="app-menu">
