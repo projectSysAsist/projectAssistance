@@ -4,7 +4,7 @@ class Home extends Controllers{
 
   public function __construct()
   {
-    echo "((((soy el home))))";
+    
     parent:: __construct();
   }
 
