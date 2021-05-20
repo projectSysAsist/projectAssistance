@@ -26,7 +26,7 @@
                 <div class="post-media">
                   <div class="content">
                     <h5>DATOS PERSONALES <button class="btn btn-sm btn-info" type="button" onclick="openModalPerfil();
-                    "fas fa-pencil-alf" aria-hidden="true"></i><button></h5>
+                    "fas fa-pencil-alf aria-hidden="true"></i><button></h5>
                   </div>
                 </div>
 
@@ -82,7 +82,7 @@
                       ['userData']['direccionfiscal'];?>
                     </div>
                   </div>
-                  <div class="row mb-10">
+                  <div class="row mb-10>
                     <div class="col-md-12">
                       <button class="btn btn-primary" type="Submit"><i class="fa fa-fw fa-lg fa-check-circle"></i> Guardar</button>
                     </div>
